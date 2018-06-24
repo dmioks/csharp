@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Dmioks.Common</RootNamespace>
     <AssemblyName>Common</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,8 +31,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.5.6\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,10 +49,70 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Binary\BinaryWriterImp.cs" />
+    <Compile Include="Binary\BinaryWriterPool.cs" />
+    <Compile Include="Binary\BinFileStream.cs" />
     <Compile Include="Binary\BinHelper.cs" />
+    <Compile Include="Binary\BinMessage.cs" />
+    <Compile Include="Binary\BinMessageBody.cs" />
+    <Compile Include="Binary\BinRead.cs" />
+    <Compile Include="Binary\BinWrite.cs" />
+    <Compile Include="Binary\ByteArray.cs" />
+    <Compile Include="Binary\ByteBuffer.cs" />
+    <Compile Include="Binary\ByteBufferPool.cs" />
+    <Compile Include="Binary\FileMessageBody.cs" />
+    <Compile Include="Binary\Interfaces.cs" />
+    <Compile Include="Binary\NumberPacker.cs" />
+    <Compile Include="Cache\Interfaces.cs" />
+    <Compile Include="Cache\ItemCache.cs" />
+    <Compile Include="Collections\PropertyDictionary.cs" />
+    <Compile Include="Collections\QueueArray.cs" />
+    <Compile Include="Collections\SyncBlockingQueue.cs" />
+    <Compile Include="Collections\SyncDictionary.cs" />
+    <Compile Include="Collections\SyncHashSet.cs" />
+    <Compile Include="Collections\SyncList.cs" />
+    <Compile Include="Entity\ObjectType.cs" />
+    <Compile Include="Entity\PropertyKey.cs" />
+    <Compile Include="Entity\PropertyType.cs" />
+    <Compile Include="Entity\SimpleEntity.cs" />
+    <Compile Include="Json\JsonArray.cs" />
+    <Compile Include="Json\JsonEntity.cs" />
+    <Compile Include="Json\JsonEntityMapper.cs" />
+    <Compile Include="Json\JsonMessage.cs" />
+    <Compile Include="Json\JsonMessageBody.cs" />
+    <Compile Include="Json\JsonObject.cs" />
+    <Compile Include="Json\JsonParser.cs" />
+    <Compile Include="Logs\Interfaces.cs" />
+    <Compile Include="Logs\LogFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Server\AsyncResponse.cs" />
+    <Compile Include="Server\BinSocketClient.cs" />
+    <Compile Include="Server\ClientPool.cs" />
+    <Compile Include="Server\CompId.cs" />
+    <Compile Include="Server\HttpHeaderParser.cs" />
+    <Compile Include="Server\Interfaces.cs" />
+    <Compile Include="Server\JsonEntitySocketClient.cs" />
+    <Compile Include="Server\MessageType.cs" />
+    <Compile Include="Server\ProtocolRfc6455.cs" />
+    <Compile Include="Server\ResponseResult.cs" />
+    <Compile Include="Server\SocketClient.cs" />
+    <Compile Include="Server\SocketServer.cs" />
+    <Compile Include="Server\WebSocketClient.cs" />
+    <Compile Include="Utils\ConnectionConfig.cs" />
+    <Compile Include="Utils\ControllerHelper.cs" />
+    <Compile Include="Utils\DatabaseDialect.cs" />
+    <Compile Include="Utils\ExcpHelper.cs" />
+    <Compile Include="Utils\ObjectPool.cs" />
+    <Compile Include="Utils\ResourceHelper.cs" />
+    <Compile Include="Utils\SmallDecimal.cs" />
+    <Compile Include="Utils\SpeedMetric.cs" />
+    <Compile Include="Utils\StringBuilderPool.cs" />
+    <Compile Include="Utils\ThreadPool.cs" />
+    <Compile Include="Utils\TimeStamp.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
